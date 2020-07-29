@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApi", "ToDoApi\ToDoApi.csproj", "{B8889276-A577-40F8-8F55-F47E4ECEEF30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApi.Tests", "ToDoApi.Tests\ToDoApi.Tests.csproj", "{03252A3E-EB3C-4108-ADC9-68368A640FDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8889276-A577-40F8-8F55-F47E4ECEEF30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8889276-A577-40F8-8F55-F47E4ECEEF30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8889276-A577-40F8-8F55-F47E4ECEEF30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8889276-A577-40F8-8F55-F47E4ECEEF30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03252A3E-EB3C-4108-ADC9-68368A640FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03252A3E-EB3C-4108-ADC9-68368A640FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03252A3E-EB3C-4108-ADC9-68368A640FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03252A3E-EB3C-4108-ADC9-68368A640FDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -8,29 +8,29 @@ namespace ToDoApi.Controllers
     [Route("api")]
     public class ToDoItemsController : Controller
     {
-        private readonly IToDoRepository _toDoRepository;
+        private readonly IToDoRepository toDoRepository;
 
         public ToDoItemsController(IToDoRepository toDoRepository)
         {
-            _toDoRepository = toDoRepository;
+            this.toDoRepository = toDoRepository;
         }
 
         [HttpGet("list")]
         public IActionResult List()
         {
-            return Ok(_toDoRepository.All);
+            return Ok(toDoRepository.All);
         }
 
         [HttpGet("exists/{id}")]
         public IActionResult Exists(String id)
         {
-            return Ok(_toDoRepository.DoesItemExist(id));
+            return Ok(toDoRepository.DoesItemExist(id));
         }
         
         [HttpGet("find/{id}")]
         public IActionResult Find(String id)
         {
-            var item = _toDoRepository.Find(id);            
+            var item = toDoRepository.Find(id);            
             if (item == null)
             {
                 return NotFound("Item with id " + id + " was not found");
@@ -57,7 +57,7 @@ namespace ToDoApi.Controllers
                 return BadRequest("The field Notes must not be null");
             }
             item.ID = Guid.NewGuid().ToString();
-            _toDoRepository.Insert(item);
+            toDoRepository.Insert(item);
             return Ok();
         }
 
@@ -80,7 +80,7 @@ namespace ToDoApi.Controllers
             {
                 return BadRequest("The field Notes must not be null");
             }
-            _toDoRepository.Update(item);   
+            toDoRepository.Update(item);   
             return Ok();
         }
 
@@ -91,11 +91,11 @@ namespace ToDoApi.Controllers
             {
                 return BadRequest("ID must not be null");
             }
-            if (!_toDoRepository.DoesItemExist(id))
+            if (!toDoRepository.DoesItemExist(id))
             {
                 return NotFound("Item with id " + id + " was not found");
             }
-            _toDoRepository.Delete(id);
+            toDoRepository.Delete(id);
             return Ok();
         }
     }

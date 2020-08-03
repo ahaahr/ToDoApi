@@ -23,8 +23,10 @@ namespace ToDoApi
         {
             services.AddControllers();
             services.AddMvc();
-            services.AddSingleton<ToDoItemContext>();
+            services.AddSingleton<ToDoItemContext>(); 
             services.AddSingleton<IToDoRepository, ToDoRepository>();
+            services.AddSingleton<UserContext>();
+            services.AddSingleton<IUserRepository, UserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

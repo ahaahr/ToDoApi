@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,9 +24,9 @@ namespace ToDoApi
         {
             services.AddControllers();
             services.AddMvc();
-            services.AddSingleton<ToDoItemContext>(); 
+            services.AddDbContext<ToDoItemContext>(x => x.UseSqlServer(Globals.CONNECTIONSTRING));
+            services.AddDbContext<UserContext>(x => x.UseSqlServer(Globals.CONNECTIONSTRING));
             services.AddSingleton<IToDoRepository, ToDoRepository>();
-            services.AddSingleton<UserContext>();
             services.AddSingleton<IUserRepository, UserRepository>();
         }
 

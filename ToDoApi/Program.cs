@@ -1,15 +1,19 @@
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace ToDoApi
 {
+    public static class Globals
+    {
+        //public static readonly string CONNECTIONSTRING = "Server=(localdb)\\mssqllocaldb;Database=ToDoDb;Trusted_Connection=True;MultipleActiveResultSets=true";
+        public static readonly string CONNECTIONSTRING = @"
+            Server=127.0.0.1,1433;
+            Database=Master;
+            User Id=SA;
+            Password=MangoMango123
+        ";
+    }
     public class Program
     {
         public static void Main(string[] args)

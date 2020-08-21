@@ -6,39 +6,36 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ToDoApi.Models;
 
-namespace ToDoApi.Migrations
+namespace ToDoApi.Migrations.ToDoItemToUserRelation
 {
-    [DbContext(typeof(ToDoItemContext))]
-    [Migration("20200817111655_InitialMigration")]
-    partial class InitialMigration
+    [DbContext(typeof(ToDoItemToUserRelationContext))]
+    [Migration("20200821134029_InitialMigrationUserToDoItemRelation")]
+    partial class InitialMigrationUserToDoItemRelation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.6")
+                .HasAnnotation("ProductVersion", "3.1.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ToDoApi.Models.ToDoItem", b =>
+            modelBuilder.Entity("ToDoApi.Models.ToDoItemToUserRelation", b =>
                 {
                     b.Property<string>("ID")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<bool>("Done")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
+                    b.Property<string>("ToDoItemID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Notes")
+                    b.Property<string>("UserID")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
-                    b.ToTable("Items");
+                    b.ToTable("Relations");
                 });
 #pragma warning restore 612, 618
         }

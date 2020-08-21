@@ -26,6 +26,7 @@ namespace ToDoApi
             services.AddMvc();
             services.AddDbContext<ToDoItemContext>(x => x.UseSqlServer(Globals.CONNECTIONSTRING));
             services.AddDbContext<UserContext>(x => x.UseSqlServer(Globals.CONNECTIONSTRING));
+            services.AddDbContext<ToDoItemToUserRelationContext>(x => x.UseSqlServer(Globals.CONNECTIONSTRING));
             services.AddSingleton<IToDoRepository, ToDoRepository>();
             services.AddSingleton<IUserRepository, UserRepository>();
         }

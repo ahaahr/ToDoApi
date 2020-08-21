@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 
 namespace ToDoApi.Models
 {
@@ -8,9 +7,15 @@ namespace ToDoApi.Models
     {
         public DbSet<User> Users { get; set; }
 
-        public UserContext(DbContextOptions<UserContext> options) : base(options)
-        {
+        public UserContext()
+        { }
 
+        public UserContext(DbContextOptions<UserContext> options) : base(options)
+        { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        {
+            builder.UseSqlServer(Globals.CONNECTIONSTRING);
         }
     }
 

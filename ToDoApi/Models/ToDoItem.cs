@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 
 namespace ToDoApi.Models
 {
@@ -8,9 +7,15 @@ namespace ToDoApi.Models
     {        
         public DbSet<ToDoItem> Items { get; set; }
 
-        public ToDoItemContext(DbContextOptions<ToDoItemContext> options) : base(options)
-        {
+        public ToDoItemContext()
+        { }
 
+        public ToDoItemContext(DbContextOptions<ToDoItemContext> options) : base(options)
+        { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder builder)
+        {
+            builder.UseSqlServer(Globals.CONNECTIONSTRING);
         }
     }
 

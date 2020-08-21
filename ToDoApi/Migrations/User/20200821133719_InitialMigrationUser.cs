@@ -2,7 +2,7 @@
 
 namespace ToDoApi.Migrations.User
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialMigrationUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

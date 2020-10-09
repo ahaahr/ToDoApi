@@ -80,6 +80,10 @@ namespace ToDoApi.Controllers
             {
                 return BadRequest("The field Notes must not be null");
             }
+            if (!toDoRepository.DoesItemExist(item.ID))
+            {
+                return NotFound("Item with id " + item.ID + " was not found");
+            }
             toDoRepository.Update(item);   
             return Ok();
         }
